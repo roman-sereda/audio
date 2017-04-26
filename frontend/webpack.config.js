@@ -1,9 +1,12 @@
 var webpack = require('webpack');
-var WriteFilePlugin = require('write-file-webpack-plugin')
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var path = require('path');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: [
+    './app/index.js'
+  ],
   output: {
     publicPath: "/assets/",
     path: __dirname + "/../backend/public/",
@@ -14,13 +17,21 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: { presets: [ 'es2015', 'react' ]}
+        loader: ['babel-loader']
       },
       {
         test: /\.css$/,
-        loaders: 'style-loader!css-loader'
+        loaders: ExtractTextPlugin.extract('css-loader')
       }
     ]
-  }
+  },
+  plugins: [
+    new UglifyJSPlugin(),
+    new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV' : '"production"'
+      }
+    })
+  ]
 };
