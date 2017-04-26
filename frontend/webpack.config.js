@@ -18,20 +18,15 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: ['babel-loader']
-      },
-      {
-        test: /\.css$/,
-        loaders: ExtractTextPlugin.extract('css-loader')
       }
     ]
   },
   plugins: [
-    new UglifyJSPlugin(),
-    new ExtractTextPlugin('styles.css'),
-    new webpack.DefinePlugin({
+    /*new UglifyJSPlugin(),*/
+    /*new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV' : '"production"'
       }
-    })
+    })*/
   ]
 };
