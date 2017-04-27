@@ -13,13 +13,32 @@ class AudioForm extends Component{
           <input type = 'submit' />
         </form>
         <input type = 'button' onClick = {(e) => this.props.handleUpdateAudioList(e)} />
+        {
+          this.props.audios[0] ?
+            <div>
+              <audio id = 'audio-player' controls ontimeupdate = 'updateTime()'>
+                { this.props.audios.map((audio) => {
+                  return(
+                    <source src = { audio.uri.url } type = 'audio/ogg' preload = 'auto' />
+                  )
+                })}
+              </audio>
+              { this.props.audios.map((audio) => {
+                return(
+                  <span><p>{ audio.uri.name }</p>
+                  <p>{ audio.uri.url }</p><br/ ></span>
+                )
+              })}
+            </div> :
+            <p>No Music</p>
+        }
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  audios:  state.audios
+  audios: state.audios
 })
 
 const mapDispatchToProps = dispatch => ({

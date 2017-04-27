@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
 import user from './user.js'
-import audio from './audio.js'
+import audios from './audios.js'
 
 const rootReducer = combineReducers({
-  user, audio
+  user, audios
 })
 
 export default rootReducer
