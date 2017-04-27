@@ -10,68 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327093123) do
+ActiveRecord::Schema.define(version: 20170427081718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", id: :serial, force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id"
-    t.integer "product_id"
-  end
-
-  create_table "photos", id: :serial, force: :cascade do |t|
-    t.string "image"
-    t.integer "product_id"
-  end
-
-  create_table "products", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "params"
-    t.string "product_type"
-    t.string "tags", default: "--- []\n"
-    t.string "main_photo"
-    t.integer "price"
-    t.integer "discount", default: 0
-    t.integer "discount_duration"
-    t.integer "have_ordered", default: 0
-    t.integer "have_voted", default: 0
-    t.integer "have_viewed", default: 0
-    t.integer "positive_rating", default: 0
-    t.integer "negative_rating", default: 0
-    t.datetime "created_at"
-    t.datetime "update_at"
-  end
-
-  create_table "sessions", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.string "token"
-    t.string "last_token"
-    t.string "location"
-    t.string "browser"
-    t.string "ip_adress"
-  end
-
-  create_table "tags", id: :serial, force: :cascade do |t|
-    t.integer "products_number", default: 0
+  create_table "audios", force: :cascade do |t|
+    t.string "uri"
     t.string "name"
-    t.string "products", default: "--- []\n"
-  end
-
-  create_table "users", id: :serial, force: :cascade do |t|
-    t.string "first_name", default: "", null: false
-    t.string "second_name"
-    t.string "wish_list", default: "--- []\n"
-    t.string "cart", default: "--- []\n"
-    t.string "password_digest"
-    t.string "email", default: "", null: false
-    t.string "avatar"
-    t.string "provider"
-    t.string "uid"
-    t.datetime "create_at"
-    t.datetime "last_visit_at"
+    t.integer "user_id"
   end
 
 end
