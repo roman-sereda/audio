@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
 
   post '/audios',         to: 'audios#create'
+  get '/audios',          to: 'audios#index'
 end
