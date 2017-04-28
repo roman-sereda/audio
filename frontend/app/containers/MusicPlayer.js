@@ -5,6 +5,8 @@ import { addAudio, getAudios } from '../actions/audio'
 import PlayerController from './PlayerController.js'
 import SongsList from './SongsList.js'
 
+import { Button } from 'semantic-ui-react'
+
 class MusicPlayer extends Component{
   componentWillMount(){
     this.props.handleUpdateAudioList()
@@ -13,6 +15,9 @@ class MusicPlayer extends Component{
   render(){
     return(
       <div className = 'music-player'>
+        <Button>
+          Click here
+        </Button>
         <PlayerController />
         <SongsList />
         <form onSubmit = {(e) => this.props.handleAudioFile(e)}>

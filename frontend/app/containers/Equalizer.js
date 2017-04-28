@@ -44,7 +44,7 @@ export default class Equalizer extends Component {
           ctx.clearRect(0, 0, width, height);
           ctx.fillStyle = '#d3d3d3'
           for (var i = 0; i < freqData.length; i+=16 ) {
-            ctx.fillRect((i / 16)*6, height, 5, -(freqData[i] / 2));
+            ctx.fillRect((i / 16)*14.5, height, 14, -(freqData[i] / 2));
           }
      }, 33)})
   }

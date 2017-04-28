@@ -1,6 +1,6 @@
 import * as types from '../constants/action-types'
 
-export default function( state = 0 , action ){
+export default function( state = 2 , action ){
 
   switch(action.type){
 
