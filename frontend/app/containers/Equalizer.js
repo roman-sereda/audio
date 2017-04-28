@@ -19,8 +19,8 @@ export default class Equalizer extends Component {
         analyser_temp = audioContext.createAnalyser(),
         source = audioContext.createMediaElementSource(audio)
 
-    source.connect(analyser2);
-    analyser2.connect(audioContext.destination);
+    source.connect(analyser_temp);
+    analyser_temp.connect(audioContext.destination);
 
     this.setState({
       ctx: ctx_temp,

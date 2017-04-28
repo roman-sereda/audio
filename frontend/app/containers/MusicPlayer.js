@@ -12,10 +12,14 @@ class MusicPlayer extends Component{
 
   render(){
     return(
-      <span>
+      <div className = 'music-player'>
         <PlayerController />
         <SongsList />
-      </span>
+        <form onSubmit = {(e) => this.props.handleAudioFile(e)}>
+          <input id = 'file' type = 'file' name = 'audio' />
+          <input type = 'submit' />
+        </form>
+      </div>
     )
   }
 }

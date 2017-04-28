@@ -7,7 +7,7 @@ class PlayerController extends Component{
   constructor(props){
     super(props)
     this.state = {
-      status: 'playing'
+      status: 'stopped'
     }
   }
 
@@ -53,6 +53,7 @@ class PlayerController extends Component{
             <audio
               id = 'audio-player'
               controls
+              onPlay = { (e) => this.handleNameChange(e) }
               onCanPlay = { (e) => this.handleNameChange(e) }
               onTimeUpdate = { (e) => this.handleTimeChange(e) }
               onEnded = { (e) => this.hadleRightButton(e) }
