@@ -4,11 +4,11 @@ import router from './router'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
-import AudioForm from './components/AudioForm'
+import MusicPlayer from './containers/MusicPlayer'
 
 ReactDOM.render(
   <Provider store = { store } >
-    <AudioForm />
+    <MusicPlayer />
   </Provider>,
   document.getElementById('root')
 )

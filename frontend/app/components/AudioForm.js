@@ -1,9 +1,22 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { addAudio, getAudios } from '../actions/audio'
 
 class AudioForm extends Component{
+
+  constructor(props){
+    super(props)
+    this.state = {
+      audio: '',
+    }
+  }
+
+  initPlayer(e){
+    e.preventDefault()
+    this.setState({ audio: document.getElementById('audio-player') })
+    this.state.audio.play()
+  }
 
   render(){
     return(
@@ -16,19 +29,15 @@ class AudioForm extends Component{
         {
           this.props.audios[0] ?
             <div>
-              <audio id = 'audio-player' controls ontimeupdate = 'updateTime()'>
-                { this.props.audios.map((audio) => {
-                  return(
-                    <source src = { audio.uri.url } type = 'audio/ogg' preload = 'auto' />
-                  )
-                })}
-              </audio>
+
+              <ul id = 'playlist'>
               { this.props.audios.map((audio) => {
                 return(
-                  <span><p>{ audio.uri.name }</p>
-                  <p>{ audio.uri.url }</p><br/ ></span>
+                  <li className = 'playlist-element'><span><p>{ audio.uri.name }</p>
+                  <p>{ audio.uri.url }</p><br/ ></span></li>
                 )
               })}
+              </ul>
             </div> :
             <p>No Music</p>
         }
@@ -57,3 +66,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AudioForm)
+*/
