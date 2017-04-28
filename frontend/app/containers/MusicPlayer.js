@@ -5,7 +5,7 @@ import { addAudio, getAudios } from '../actions/audio'
 import PlayerController from './PlayerController.js'
 import SongsList from './SongsList.js'
 
-import { Button } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 class MusicPlayer extends Component{
   componentWillMount(){
@@ -14,17 +14,18 @@ class MusicPlayer extends Component{
 
   render(){
     return(
-      <div className = 'music-player'>
-        <Button>
-          Click here
-        </Button>
-        <PlayerController />
-        <SongsList />
-        <form onSubmit = {(e) => this.props.handleAudioFile(e)}>
-          <input id = 'file' type = 'file' name = 'audio' />
-          <input type = 'submit' />
-        </form>
-      </div>
+      <Grid columns = '2' centered >
+        <Grid.Column widescreen = '6' >
+          <PlayerController />
+          <form onSubmit = {(e) => this.props.handleAudioFile(e)}>
+            <input id = 'file' type = 'file' name = 'audio' />
+            <input type = 'submit' />
+          </form>
+        </Grid.Column>
+        <Grid.Column widescreen = '6' >
+          <SongsList />
+        </Grid.Column>
+      </Grid>
     )
   }
 }

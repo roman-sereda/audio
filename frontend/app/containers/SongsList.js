@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { Menu } from 'semantic-ui-react'
+
 class SongsList extends Component{
 
   chooseTrack(e, index){
@@ -11,11 +13,15 @@ class SongsList extends Component{
   render(){
     return(
       <span>
-      { this.props.songs[0] ?
-         this.props.songs.map((song, index) => {
-          return(
-            <p onClick = { (e) => this.chooseTrack(e, index)}>{ this.props.current_song == index ? <span style = {{backgroundColor: 'rgb(230,230,255)'}}>Now playing</span> : null }{ song.uri.url }</p>
-          )
+        <Menu pointing secondary>
+          <Menu.Item name = 'Songs List' ></Menu.Item>
+          <Menu.Item name = 'Add song' ></Menu.Item>
+        </Menu>
+        { this.props.songs[0] ?
+          this.props.songs.map((song, index) => {
+            return(
+              <p onClick = { (e) => this.chooseTrack(e, index)}>{ this.props.current_song == index ? <span style = {{backgroundColor: 'rgb(230,230,255)'}}>Now playing</span> : null }{ song.uri.url }</p>
+            )
         }) : null }
       </span>
     )
