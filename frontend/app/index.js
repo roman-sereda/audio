@@ -9,7 +9,7 @@ import MusicPlayer from './containers/MusicPlayer'
 
 ReactDOM.render(
   <Provider store = { store } >
-    <MusicPlayer />
+    { router }
   </Provider>,
   document.getElementById('root')
 )

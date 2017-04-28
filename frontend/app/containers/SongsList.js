@@ -13,10 +13,6 @@ class SongsList extends Component{
   render(){
     return(
       <span>
-        <Menu pointing secondary>
-          <Menu.Item name = 'Songs List' ></Menu.Item>
-          <Menu.Item name = 'Add song' ></Menu.Item>
-        </Menu>
         { this.props.songs[0] ?
           this.props.songs.map((song, index) => {
             return(
